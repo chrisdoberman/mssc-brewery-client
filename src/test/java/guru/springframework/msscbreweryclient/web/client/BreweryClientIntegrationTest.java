@@ -25,7 +25,7 @@ class BreweryClientIntegrationTest {
 
     @Test
     void testSaveNewBeer() {
-        BeerDto beerDto = BeerDto.builder().beerName("New Beer").build();
+        BeerDto beerDto = BeerDto.builder().beerName("New Beer").beerStyle("IPA").build();
         URI uri = breweryClient.saveNewBeer(beerDto);
 
         assertNotNull(uri);
@@ -35,7 +35,9 @@ class BreweryClientIntegrationTest {
     @Test
     void testUpdateBeer() {
         //given
-        BeerDto beerDto = BeerDto.builder().beerName("New Beer").build();
+        BeerDto beerDto = BeerDto.builder().beerName("New Beer")
+                .beerStyle("IPA")
+                .build();
         breweryClient.updateBeer(UUID.randomUUID(), beerDto);
     }
 
